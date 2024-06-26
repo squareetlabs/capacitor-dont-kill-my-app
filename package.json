@@ -1,7 +1,7 @@
 {
   "name": "@squareetlabs/capacitor-dont-kill-my-app",
-  "version": "0.0.1",
-  "description": "This Capacitor Plugin helps bring up the autostart permission manager of a phone to the user so they can add an app to autostart.",
+  "version": "0.22.0",
+  "description": "This Capacitor plugin helps bring up the auto-start and battery saver permission managers on Android devices, allowing users to add an app to auto-start and prevent the system from killing it. Ensuring that your app can run in the background and is not restricted by the system is crucial for\napplications that rely on long-running background processes. This includes apps like music players, navigation apps, alarm apps, or fitness trackers.\nDifferent Android manufacturers implement custom modifications that can restrict apps from running in the background, which can negatively impact the user experience. This plugin provides a unified interface to handle these permissions, allowing developers to prompt users to enable the necessary settings on their devices.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -9,13 +9,21 @@
   "files": [
     "android/src/main/",
     "android/build.gradle",
-    "dist/",
-    "ios/Sources",
-    "ios/Tests",
-    "Package.swift",
-    "SquareetlabsCapacitorDontKillMyApp.podspec"
+    "dist/"
   ],
   "author": "Squareetlabs",
+  "contributors": [
+    {
+      "name": "Alberto Rial Barreiro",
+      "email": "alberto@squareet.com",
+      "url": "https://squareet.com"
+    },
+    {
+      "name": "Jacobo Cantorna Cigarrán",
+      "email": "jacobo@squareet.com",
+      "url": "https://squareet.com"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -26,19 +34,33 @@
   },
   "keywords": [
     "capacitor",
-    "plugin",
+    "capacitor-plugin",
+    "android",
+    "background",
+    "permissions",
+    "auto-start",
+    "battery-saver",
+    "background-process",
+    "background-service",
+    "android-permissions",
+    "android-settings",
+    "device-settings",
+    "dont-kill-my-app",
+    "auto-start-permission",
+    "battery-saver-permission",
+    "background-task",
+    "long-running-process",
+    "squareetlabs",
     "native"
   ],
   "scripts": {
-    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
-    "verify:ios": "xcodebuild -scheme SquareetlabsCapacitorDontKillMyApp -destination generic/platform=iOS",
+    "verify": "npm run npm run verify:android && npm run verify:web",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "verify:web": "npm run build",
-    "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
-    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
+    "lint": "npm run eslint && npm run prettier -- --check",
+    "fmt": "npm run eslint -- --fix && npm run prettier -- --write",
     "eslint": "eslint . --ext ts",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
-    "swiftlint": "node-swiftlint",
     "docgen": "docgen --api DontKillMyAppPlugin --output-readme README.md --output-json dist/docs.json",
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
     "clean": "rimraf ./dist",
@@ -49,30 +71,23 @@
     "@capacitor/android": "^6.0.0",
     "@capacitor/core": "^6.0.0",
     "@capacitor/docgen": "^0.2.2",
-    "@capacitor/ios": "^6.0.0",
     "@ionic/eslint-config": "^0.3.0",
     "@ionic/prettier-config": "^1.0.1",
-    "@ionic/swiftlint-config": "^1.1.2",
     "eslint": "^7.11.0",
     "prettier": "~2.3.0",
     "prettier-plugin-java": "~1.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.32.0",
-    "swiftlint": "^1.0.1",
     "typescript": "~4.1.5"
   },
   "peerDependencies": {
     "@capacitor/core": "^6.0.0"
   },
   "prettier": "@ionic/prettier-config",
-  "swiftlint": "@ionic/swiftlint-config",
   "eslintConfig": {
     "extends": "@ionic/eslint-config/recommended"
   },
   "capacitor": {
-    "ios": {
-      "src": "ios"
-    },
     "android": {
       "src": "android"
     }
