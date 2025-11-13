@@ -1,11 +1,12 @@
 # Capacitor DontKillMyApp
 
 A Capacitor plugin to manage auto-start and battery saver permissions across different Android manufacturers.
+This is a fork of @squareetlabs/capacitor-dont-kill-my-app that support Capacitor 7
 
 ## Install
 
 ```bash
-npm install @squareetlabs/capacitor-dont-kill-my-app
+npm install @wahibimoh/capacitor-dont-kill-my-app
 ionic cap sync
 ```
 
