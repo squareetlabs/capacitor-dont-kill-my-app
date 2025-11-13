@@ -1,6 +1,6 @@
 {
-  "name": "@wahibimoh/capacitor-dont-kill-my-app",
-  "version": "7.25.0",
+  "name": "@squareetlabs/capacitor-dont-kill-my-app",
+  "version": "7.0.0",
   "description": "This Capacitor plugin helps bring up the auto-start and battery saver permission managers on Android devices, allowing users to add an app to auto-start and prevent the system from killing it. Ensuring that your app can run in the background and is not restricted by the system is crucial for\napplications that rely on long-running background processes. This includes apps like music players, navigation apps, alarm apps, or fitness trackers.\nDifferent Android manufacturers implement custom modifications that can restrict apps from running in the background, which can negatively impact the user experience. This plugin provides a unified interface to handle these permissions, allowing developers to prompt users to enable the necessary settings on their devices.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
